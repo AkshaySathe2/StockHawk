@@ -30,7 +30,11 @@ public class Utils {
         if (count == 1){
           jsonObject = jsonObject.getJSONObject("results")
               .getJSONObject("quote");
-          batchOperations.add(buildBatchOperation(jsonObject));
+          Boolean isValid1=jsonObject.getString("StockExchange").equalsIgnoreCase("null");
+          Boolean isValid2=jsonObject.getString("StockExchange")==null;
+          if(!isValid1) {
+            batchOperations.add(buildBatchOperation(jsonObject));
+          }
         } else{
           resultsArray = jsonObject.getJSONObject("results").getJSONArray("quote");
 
