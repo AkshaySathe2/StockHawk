@@ -8,6 +8,7 @@ import android.content.Loader;
 import android.database.Cursor;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.ActionBar;
 import android.os.Bundle;
@@ -52,6 +53,7 @@ public class MyStocksActivity extends AppCompatActivity implements LoaderManager
   private Context mContext;
   private Cursor mCursor;
   boolean isConnected;
+  private int scroll_position=0;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -74,7 +76,16 @@ public class MyStocksActivity extends AppCompatActivity implements LoaderManager
         startService(mServiceIntent);
       } else{
         networkToast();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+          finishAffinity();
+        }else {
+          finish();
+        }
       }
+    }else{
+      scroll_position=savedInstanceState.getInt(getString(R.string.position_tag));
+
+
     }
     RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
     recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -85,7 +96,12 @@ public class MyStocksActivity extends AppCompatActivity implements LoaderManager
             new RecyclerViewItemClickListener.OnItemClickListener() {
               @Override public void onItemClick(View v, int position) {
                 //TODO:
-                // do something on item click
+                mCursor.moveToPosition(position);
+                scroll_position=position;
+                String symbol=mCursor.getString(mCursor.getColumnIndex(QuoteColumns.SYMBOL));
+                Intent intent=new Intent(mContext,StockDetailActivity.class);
+                intent.putExtra(getString(R.string.symbole_label),symbol);
+                startActivity(intent);
               }
             }));
     recyclerView.setAdapter(mCursorAdapter);
