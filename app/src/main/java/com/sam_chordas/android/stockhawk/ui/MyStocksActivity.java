@@ -47,12 +47,11 @@ public class MyStocksActivity extends AppCompatActivity implements LoaderManager
    */
   private CharSequence mTitle;
   private Intent mServiceIntent;
-  private ItemTouchHelper mItemTouchHelper;
   private static final int CURSOR_LOADER_ID = 0;
   private QuoteCursorAdapter mCursorAdapter;
   private Context mContext;
   private Cursor mCursor;
-  boolean isConnected;
+  private boolean isConnected;
   private int scroll_position=0;
 
   @Override
@@ -71,7 +70,7 @@ public class MyStocksActivity extends AppCompatActivity implements LoaderManager
     mServiceIntent = new Intent(this, StockIntentService.class);
     if (savedInstanceState == null){
       // Run the initialize task service so that some stocks appear upon an empty database
-      mServiceIntent.putExtra("tag", "init");
+      mServiceIntent.putExtra(getString(R.string.tag), getString(R.string.init));
       if (isConnected){
         startService(mServiceIntent);
       } else{
@@ -122,18 +121,23 @@ public class MyStocksActivity extends AppCompatActivity implements LoaderManager
                   Cursor c = getContentResolver().query(QuoteProvider.Quotes.CONTENT_URI,
                       new String[] { QuoteColumns.SYMBOL }, QuoteColumns.SYMBOL + "= ?",
                       new String[] { input.toString() }, null);
-                  if (c.getCount() != 0) {
-                    Toast toast =
-                        Toast.makeText(MyStocksActivity.this, "This stock is already saved!",
-                            Toast.LENGTH_LONG);
-                    toast.setGravity(Gravity.CENTER, Gravity.CENTER, 0);
-                    toast.show();
-                    return;
-                  } else {
-                    // Add the stock to DB
-                    mServiceIntent.putExtra("tag", "add");
-                    mServiceIntent.putExtra("symbol", input.toString());
-                    startService(mServiceIntent);
+                  if (c != null) {
+                    if (c.getCount() != 0) {
+                      Toast toast =
+                          Toast.makeText(MyStocksActivity.this, R.string.stock_already_saved,
+                              Toast.LENGTH_LONG);
+                      toast.setGravity(Gravity.CENTER, Gravity.CENTER, 0);
+                      toast.show();
+                      return;
+                    } else {
+                      // Add the stock to DB
+                      mServiceIntent.putExtra(getString(R.string.tag), getString(R.string.add));
+                      mServiceIntent.putExtra(getString(R.string.symbol), input.toString());
+                      startService(mServiceIntent);
+                    }
+                  }
+                  if (c != null) {
+                    c.close();
                   }
                 }
               })
@@ -146,14 +150,14 @@ public class MyStocksActivity extends AppCompatActivity implements LoaderManager
     });
 
     ItemTouchHelper.Callback callback = new SimpleItemTouchHelperCallback(mCursorAdapter);
-    mItemTouchHelper = new ItemTouchHelper(callback);
+    ItemTouchHelper mItemTouchHelper = new ItemTouchHelper(callback);
     mItemTouchHelper.attachToRecyclerView(recyclerView);
 
     mTitle = getTitle();
     if (isConnected){
       long period = 3600L;
       long flex = 10L;
-      String periodicTag = "periodic";
+      String periodicTag = getString(R.string.periodic);
 
       // create a periodic task to pull stocks once every hour after the app has been opened. This
       // is so Widget data stays up to date.
@@ -178,15 +182,18 @@ public class MyStocksActivity extends AppCompatActivity implements LoaderManager
     getLoaderManager().restartLoader(CURSOR_LOADER_ID, null, this);
   }
 
-  public void networkToast(){
+  private void networkToast(){
     Toast.makeText(mContext, getString(R.string.network_toast), Toast.LENGTH_SHORT).show();
   }
 
-  public void restoreActionBar() {
+  private void restoreActionBar() {
     ActionBar actionBar = getSupportActionBar();
-    actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
-    actionBar.setDisplayShowTitleEnabled(true);
-    actionBar.setTitle(mTitle);
+    if (actionBar != null) {
+      actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
+      actionBar.setDisplayShowTitleEnabled(true);
+      actionBar.setTitle(mTitle);
+    }
+
   }
 
   @Override

@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.database.DataSetObserver;
 import android.support.v7.widget.RecyclerView;
 
+import com.sam_chordas.android.stockhawk.R;
 import com.sam_chordas.android.stockhawk.widget.WidgetRemoteViewFactory;
 
 /**
@@ -23,7 +24,7 @@ public abstract class CursorRecyclerViewAdapter <VH extends RecyclerView.ViewHol
   public CursorRecyclerViewAdapter(Context context, Cursor cursor){
     mCursor = cursor;
     dataIsValid = cursor != null;
-    rowIdColumn = dataIsValid ? mCursor.getColumnIndex("_id") : -1;
+    rowIdColumn = dataIsValid ? mCursor.getColumnIndex(context.getString(R.string._id)) : -1;
     mDataSetObserver = new NotifyingDataSetObserver();
     if (dataIsValid){
       mCursor.registerDataSetObserver(mDataSetObserver);

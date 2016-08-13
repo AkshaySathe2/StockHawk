@@ -23,6 +23,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import butterknife.BindView;
@@ -97,7 +98,7 @@ public class StockDetailActivity extends AppCompatActivity {
         protected void onPreExecute() {
             super.onPreExecute();
 
-            progressBar.setMessage("Loading data. Please Wait..");
+            progressBar.setMessage(getString(R.string.loading_data));
             progressBar.setCancelable(false);
             progressBar.show();
         }
@@ -132,7 +133,7 @@ public class StockDetailActivity extends AppCompatActivity {
 
     private void plotgraph() {
 
-        SimpleDateFormat simpleDateFormat=new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat simpleDateFormat=new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH);
         for(int i=0;i<historicalQuotes.size();i++)
         {
             HistoricalQuote historicalQuote=historicalQuotes.get(i);

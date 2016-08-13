@@ -4,18 +4,18 @@
     <style name="AppThemeNoAction" parent="Theme.AppCompat.NoActionBar">
         <item name="colorPrimary">@color/material_blue_500</item>
         <item name="colorPrimaryDark">@color/material_blue_700</item>
-        <item name="android:windowEnterTransition">@transition/activity_enter_transition</item>
-        <item name="android:windowExitTransition">@transition/activity_exit_transition</item>
-        <item name="android:windowActivityTransitions">true</item>
+        <item name="android:windowEnterTransition" tools:targetApi="lollipop">@transition/activity_enter_transition</item>
+        <item name="android:windowExitTransition" tools:targetApi="lollipop">@transition/activity_exit_transition</item>
+        <item name="android:windowActivityTransitions" tools:targetApi="lollipop">true</item>
         <!-- Customize your theme here. -->
     </style>
 
     <style name="AppTheme" parent="Theme.AppCompat">
         <item name="colorPrimary">@color/material_blue_500</item>
         <item name="colorPrimaryDark">@color/material_blue_700</item>
-        <item name="android:windowEnterTransition">@transition/activity_enter_transition</item>
-        <item name="android:windowExitTransition">@transition/activity_exit_transition</item>
-        <item name="android:windowActivityTransitions">true</item>
+        <item name="android:windowEnterTransition" tools:targetApi="lollipop">@transition/activity_enter_transition</item>
+        <item name="android:windowExitTransition" tools:targetApi="lollipop">@transition/activity_exit_transition</item>
+        <item name="android:windowActivityTransitions" tools:targetApi="lollipop">true</item>
         <!-- Customize your theme here. -->
     </style>
 

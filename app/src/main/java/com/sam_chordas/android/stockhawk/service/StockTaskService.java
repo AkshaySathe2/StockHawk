@@ -79,12 +79,11 @@ public class StockTaskService extends GcmTaskService{
         } catch (UnsupportedEncodingException e) {
           e.printStackTrace();
         }
-      } else if (initQueryCursor != null){
+      } else {
         DatabaseUtils.dumpCursor(initQueryCursor);
         initQueryCursor.moveToFirst();
         for (int i = 0; i < initQueryCursor.getCount(); i++){
-          mStoredSymbols.append("\""+
-              initQueryCursor.getString(initQueryCursor.getColumnIndex("symbol"))+"\",");
+          mStoredSymbols.append("\"").append(initQueryCursor.getString(initQueryCursor.getColumnIndex("symbol"))).append("\",");
           initQueryCursor.moveToNext();
         }
         mStoredSymbols.replace(mStoredSymbols.length() - 1, mStoredSymbols.length(), ")");

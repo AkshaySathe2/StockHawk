@@ -7,13 +7,13 @@
   <string name="action_change_units">Change Units</string>
   <string name="symbol_search">Symbol Search</string>
   <string name="content_test">Search for a Stock Symbol</string>
-  <string name="input_hint">FB</string>
-  <string name="input_prefill"></string>
+  <string name="input_hint" translatable="false">FB</string>
+  <string name="input_prefill" translatable="false"/>
   <string name="network_toast">Uh-oh! This app requires an internet connection</string>
   <string name="add_new_company">Add new company</string>
 
 
-  <string name="high_label">HIGH</string>
+  <string name="high_label" translatable="false">HIGH</string>
   <string name="low_label">LOW</string>
   <string name="symbole_label">SYMBOL</string>
   <string name="name_label">NAME</string>
@@ -21,16 +21,28 @@
   <string name="exchange_label">EXCHANGE</string>
   <string name="test_string">TEST</string>
   <string name="chart_description">History of 1yr stock data</string>
-  <string name="is_current_check">1</string>
+  <string name="is_current_check" translatable="false">1</string>
 
   <string name="position_tag" translatable="false">position</string>
   <string name="label_tag" translatable="false">labels</string>
   <string name="extrastock_tag" translatable="false">stockElements</string>
 
-  <string name="symbol_description">STOCK %1$s</string>
-  <string name="bid_description">Bid pice %1$s</string>
-  <string name="name_description">Name %1$s</string>
-  <string name="currency_description">Currency %1$s</string>
-  <string name="exchange_description">Exchange %1$s</string>
+  <string name="symbol_description" translatable="false">STOCK %1$s</string>
+  <string name="bid_description" translatable="false">Bid pice %1$s</string>
+  <string name="name_description" translatable="false">Name %1$s</string>
+  <string name="currency_description" translatable="false">Currency %1$s</string>
+  <string name="exchange_description" translatable="false">Exchange %1$s</string>
+  <string name="expanded_app_icon">Expanded App Icon</string>
+  <string name="goog" translatable="false">GOOG</string>
+  <string name="_1000_00" translatable="false">1000.00</string>
+  <string name="_100" translatable="false">100%</string>
+  <string name="_id" translatable="false">_id</string>
+  <string name="tag" translatable="false">tag</string>
+  <string name="init">init</string>
+  <string name="stock_already_saved">This stock is already saved!</string>
+  <string name="add" translatable="false">add</string>
+  <string name="symbol" translatable="false">symbol</string>
+  <string name="periodic" translatable="false">periodic</string>
+  <string name="loading_data">Loading data. Please Wait..</string>
 
 </resources>

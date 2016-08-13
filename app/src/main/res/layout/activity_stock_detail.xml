@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
@@ -30,6 +29,7 @@
                 android:scaleType="centerCrop"
                 android:fitsSystemWindows="true"
                 android:src="@drawable/collapse_stock"
+                android:contentDescription="@string/expanded_app_icon"
                 app:layout_collapseMode="parallax"
                 />
             <android.support.v7.widget.Toolbar
@@ -83,7 +83,6 @@
 
                     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                         xmlns:app="http://schemas.android.com/apk/res-auto"
-                        xmlns:tools="http://schemas.android.com/tools"
                         android:id="@+id/detail_additional_pane"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
@@ -102,7 +101,6 @@
                             android:id="@+id/symbol_text"
                             android:text="@string/test_string"
                             android:layout_width="match_parent"
-                            android:layout_toRightOf="@+id/symbol_label"
                             android:layout_toEndOf="@+id/symbol_label"
                             android:layout_alignTop="@+id/symbol_label"
                             android:layout_alignBottom="@+id/symbol_label"
@@ -121,7 +119,6 @@
                             android:id="@+id/name_text"
                             android:text="@string/test_string"
                             android:layout_width="match_parent"
-                            android:layout_toRightOf="@+id/name_label"
                             android:layout_toEndOf="@+id/name_label"
                             android:layout_alignTop="@+id/name_label"
                             android:layout_alignBottom="@+id/name_label"
@@ -140,7 +137,6 @@
                         <TextView
                             android:id="@+id/currency_text"
                             android:text="@string/test_string"
-                            android:layout_toRightOf="@+id/currency_label"
                             android:layout_toEndOf="@+id/currency_label"
                             android:layout_alignTop="@+id/currency_label"
                             android:layout_alignBottom="@+id/currency_label"
@@ -161,7 +157,6 @@
                             android:layout_width="match_parent"
                             style="@style/StockDetailText"
                             android:text="@string/test_string"
-                            android:layout_toRightOf="@+id/stockExchange_label"
                             android:layout_toEndOf="@+id/stockExchange_label"
                             android:layout_alignTop="@+id/stockExchange_label"
                             android:layout_alignBottom="@+id/stockExchange_label"
