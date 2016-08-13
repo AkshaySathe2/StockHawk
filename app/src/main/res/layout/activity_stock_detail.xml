@@ -81,117 +81,92 @@
                         />
 
 
-                    <android.support.v7.widget.GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                         xmlns:app="http://schemas.android.com/apk/res-auto"
                         xmlns:tools="http://schemas.android.com/tools"
                         android:id="@+id/detail_additional_pane"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="2"
-                        app:columnCount="2"
+                        android:padding="3dp"
                         android:paddingBottom="16dp"
-                        android:paddingEnd="3dp"
-                        android:paddingLeft="3dp"
-                        android:paddingRight="3dp"
-                        android:paddingStart="3dp"
                         android:paddingTop="30dp">
 
                         <TextView
                             android:id="@+id/symbol_label"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif"
-                            android:gravity="center_vertical"
                             android:text="@string/symbole_label"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                            android:textColor="@android:color/white"
-                            app:layout_columnWeight="1"
-                            app:layout_gravity="fill"
-                            app:layout_rowWeight="1"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginStart="10dp"/>
+                            android:layout_width="wrap_content"
+                            style="@style/StockDetailText"/>
 
                         <TextView
                             android:id="@+id/symbol_text"
-                            android:gravity="center_vertical"
                             android:text="@string/test_string"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                            android:textColor="@android:color/white"
-                            app:layout_gravity="fill"
-                            app:layout_rowWeight="1"
-                            android:layout_marginRight="10dp"
-                            android:layout_marginEnd="10dp"/>
+                            android:layout_width="match_parent"
+                            android:layout_toRightOf="@+id/symbol_label"
+                            android:layout_toEndOf="@+id/symbol_label"
+                            android:layout_alignTop="@+id/symbol_label"
+                            android:layout_alignBottom="@+id/symbol_label"
+                            style="@style/StockDetailText"
+                            />
 
                         <TextView
                             android:id="@+id/name_label"
-                            android:fontFamily="sans-serif"
-                            android:gravity="center_vertical"
                             android:text="@string/name_label"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                            android:textColor="@android:color/white"
-                            app:layout_gravity="fill"
-                            app:layout_rowWeight="1"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginStart="10dp"/>
+                            android:layout_below="@+id/symbol_label"
+                            android:layout_width="wrap_content"
+                            style="@style/StockDetailText"
+                            />
 
                         <TextView
                             android:id="@+id/name_text"
-                            android:gravity="center_vertical"
                             android:text="@string/test_string"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                            android:textColor="@android:color/white"
-                            app:layout_gravity="fill"
-                            app:layout_rowWeight="1"
-                            android:layout_marginRight="10dp"
-                            android:layout_marginEnd="10dp"/>
+                            android:layout_width="match_parent"
+                            android:layout_toRightOf="@+id/name_label"
+                            android:layout_toEndOf="@+id/name_label"
+                            android:layout_alignTop="@+id/name_label"
+                            android:layout_alignBottom="@+id/name_label"
+                            style="@style/StockDetailText"
+                            />
 
                         <TextView
                             android:id="@+id/currency_label"
-                            android:fontFamily="sans-serif"
-                            android:gravity="center_vertical"
                             android:text="@string/currency_label"
-                            android:textColor="@android:color/white"
-                            android:textSize="20sp"
-                            app:layout_gravity="fill"
-                            app:layout_rowWeight="1"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginStart="10dp"/>
+                            android:layout_width="wrap_content"
+                            android:layout_below="@+id/name_label"
+                            style="@style/StockDetailText"
+                            />
 
 
                         <TextView
                             android:id="@+id/currency_text"
-                            android:gravity="center_vertical"
                             android:text="@string/test_string"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                            android:textColor="@android:color/white"
-                            app:layout_gravity="fill"
-                            app:layout_rowWeight="1"
-                            android:layout_marginRight="10dp"
-                            android:layout_marginEnd="10dp"/>
+                            android:layout_toRightOf="@+id/currency_label"
+                            android:layout_toEndOf="@+id/currency_label"
+                            android:layout_alignTop="@+id/currency_label"
+                            android:layout_alignBottom="@+id/currency_label"
+                            android:layout_width="match_parent"
+                            style="@style/StockDetailText"
+                            />
 
 
                         <TextView
                             android:id="@+id/stockExchange_label"
-                            android:fontFamily="sans-serif"
-                            android:gravity="center_vertical"
+                            android:layout_below="@+id/currency_label"
                             android:text="@string/exchange_label"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                            android:textColor="@android:color/white"
-                            app:layout_gravity="fill"
-                            app:layout_rowWeight="1"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginStart="10dp"/>
+                            style="@style/StockDetailText"
+                            android:layout_width="wrap_content" />
 
                         <TextView
                             android:id="@+id/stockExchange_text"
-                            android:gravity="center_vertical"
+                            android:layout_width="match_parent"
+                            style="@style/StockDetailText"
                             android:text="@string/test_string"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                            android:textColor="@android:color/white"
-                            app:layout_gravity="fill"
-                            app:layout_rowWeight="1"
-                            android:layout_marginRight="10dp"
-                            android:layout_marginEnd="10dp"/>
-                    </android.support.v7.widget.GridLayout>
+                            android:layout_toRightOf="@+id/stockExchange_label"
+                            android:layout_toEndOf="@+id/stockExchange_label"
+                            android:layout_alignTop="@+id/stockExchange_label"
+                            android:layout_alignBottom="@+id/stockExchange_label"
+                            />
+                    </RelativeLayout>
                 </LinearLayout>
             </android.support.v7.widget.CardView>
         </LinearLayout>
